@@ -1,4 +1,5 @@
 const express = require('express')
+const methodOverride = require('method-override')
 const app = express()
 
 const mongoose = require('mongoose')
@@ -12,6 +13,7 @@ const bodyParser = require('body-parser');
 
 // The following line must appear AFTER const app = express() and before your routes!
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'))
 
 
 const Post = mongoose.model('Post', {
@@ -54,6 +56,23 @@ app.get('/posts/:id', (req, res) => {
   })
 });
 
+// EDIT
+app.get('/posts/:id/edit', (req, res) => {
+  Post.findById(req.params.id, function(err, post) {
+    res.render('posts-edit', { post: post });
+  })
+})
+
+// UPDATE
+app.put('/posts/:id', (req, res) => {
+  Post.findByIdAndUpdate(req.params.id, req.body)
+    .then(post => {
+      res.redirect(`/posts/${post._id}`)
+    })
+    .catch(err => {
+      console.log(err.message)
+    })
+})
 app.listen(3000, () => {
     console.log("Listening Port 3000")
 })

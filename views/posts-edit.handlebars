@@ -1,0 +1,9 @@
+<!-- views/reviews-edit.handlebars -->
+
+<form method="POST" action="/posts/{{post._id}}?_method=PUT">
+  {{> posts-form}}
+  <!-- BUTTON -->
+  <p>
+    <button type="submit">Edit Post</button>
+  </p>
+</form>
