@@ -23,8 +23,8 @@ const Post = mongoose.model('Post', {
 // INDEX
 app.get('/', (req, res) => {
   Post.find()
-    .then(posts => {
-      res.render('post-index', { posts: posts });
+    .then(post => {
+      res.render('post-index', { post: post });
     })
     .catch(err => {
       console.log(err);
@@ -40,12 +40,19 @@ app.get('/posts/new', (req, res) => {
 app.post('/posts', (req, res) => {
   console.log(req.body);
   Post.create(req.body).then((post) => {
-      res.redirect('/')
+      res.redirect(`/posts/${post._id}`)
   }).catch((err) => {
       console.log(err.message)
   })
   // res.render('reviews-new', {});
 })
+
+// SHOW
+app.get('/posts/:id', (req, res) => {
+  Post.findById(req.params.id).then((post) => {
+      res.render('posts-show', { post: post })
+  })
+});
 
 app.listen(3000, () => {
     console.log("Listening Port 3000")

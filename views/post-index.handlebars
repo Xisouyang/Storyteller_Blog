@@ -3,7 +3,7 @@
 
 <a href="/posts/new">New Post!</a>
 
-{{#each posts}}
-  <h2>{{this.title}}</h2>
+{{#each post}}
+  <h2><a href="/posts/{{this._id}}">{{this.title}}</h2>
   <small>{{this.description}}</small>
 {{/each}}
