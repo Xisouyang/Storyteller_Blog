@@ -1,0 +1,9 @@
+<!-- reviews-index -->
+<h2>Posts</h2>
+
+<a href="/posts/new">New Post!</a>
+
+{{#each posts}}
+  <h2>{{this.title}}</h2>
+  <small>{{this.description}}</small>
+{{/each}}
