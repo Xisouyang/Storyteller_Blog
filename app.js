@@ -73,6 +73,17 @@ app.put('/posts/:id', (req, res) => {
       console.log(err.message)
     })
 })
+
+// DELETE
+app.delete('/posts/:id', function (req, res) {
+  // console.log("DELETE post")
+  Post.findOneAndDelete(req.params.id).then((post) => {
+    res.redirect('/');
+  }).catch((err) => {
+    console.log(err.message);
+  })
+})
+
 app.listen(3000, () => {
     console.log("Listening Port 3000")
 })
