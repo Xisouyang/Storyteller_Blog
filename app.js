@@ -22,3 +22,5 @@ const posts = require('./controllers/posts')(app);
 app.listen(3000, () => {
     console.log("Listening Port 3000")
 })
+
+module.exports = app
