@@ -2,14 +2,14 @@
 
 <fieldset>
   <!-- TITLE -->
-  <p>
-    <label for="post-title">Title</label><br>
-    <input id="post-title" type="text" name="title" value="{{post.title}}"/>
-  </p>
+  <div class="form-group">
+    <label style="color: #000000" for="post-title">Title</label><br>
+    <input class="form-control" id="post-title" type="text" name="title" value="{{post.title}}"/>
+</div>
 
   <!-- DESCRIPTION -->
-  <p>
-    <label for="post-description">Description</label><br>
-    <textarea id="post-description" name="description" rows="10" />{{post.description}}</textarea>
-  </p>
+  <div class="form-group">
+    <label style="color: #000000" for="post-description">Description</label><br>
+    <textarea class="form-control" id="post-description" name="description" rows="10" />{{post.description}}</textarea>
+</div>
 </fieldset>

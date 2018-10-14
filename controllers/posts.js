@@ -58,7 +58,7 @@ module.exports = function(app) {
   // DELETE
   app.delete('/posts/:id', function (req, res) {
     // console.log("DELETE post")
-    Post.findOneAndDelete(req.params.id).then((post) => {
+    Post.findByIdAndRemove(req.params.id).then((post) => {
       res.redirect('/');
     }).catch((err) => {
       console.log(err.message);

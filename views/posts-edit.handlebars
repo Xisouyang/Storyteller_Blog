@@ -1,13 +1,13 @@
 <!-- views/reviews-edit.handlebars -->
 
 <form method="POST" action="/posts/{{post._id}}?_method=PUT">
-      <legend>Edit Post</legend>
+      <legend style="color: #000000">Edit Post</legend>
   {{> posts-form}}
   <!-- BUTTON -->
-  <p>
-    <button type="submit">Edit Post</button>
-  </p>
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit">Save Post</button>
+</div>
 </form>
 <p><form method="GET" action="/posts/{{post._id}}">
-    <button type="submit">Cancel</button>
+    <button class="btn" style="background-color: #000000; color: #FFFFFF" type="submit">Cancel</button>
 </form></p>

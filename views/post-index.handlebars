@@ -1,9 +1,11 @@
 <!-- reviews-index -->
-<h2>Posts</h2>
+<h2 style="color: #000000">Posts</h2>
 
-<a href="/posts/new">New Post!</a>
-
-{{#each post}}
-  <h2><a href="/posts/{{this._id}}">{{this.title}}</a></h2>
-  <small>{{this.description}}</small>
-{{/each}}
+<div class="row">
+  {{#each post}}
+    <div class="col-sm-6">
+        <h2><a style="max-width: 300px; overflow-wrap: break-word" href="/posts/{{this._id}}">{{this.title}}</a></h2>
+        <p style="max-width: 300px; overflow-wrap: break-word; color: #000000">{{this.description}}</p>
+    </div>
+  {{/each}}
+</div>

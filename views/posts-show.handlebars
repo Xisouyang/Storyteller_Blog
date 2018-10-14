@@ -1,10 +1,12 @@
 <!-- views/posts-show.handlebars -->
-<a href="/">Back to Home</a>
 
-<h1>{{post.title}}</h1>
-<p>{{post.description}}</p>
-
-<a href="/posts/{{post._id}}/edit">Edit Post</a>
-<p><form method="POST" action="/posts/{{post._id}}?_method=DELETE">
-    <button type="submit">Delete</button>
-</form></p>
+<div class="row">
+    <div class="col-sm-6">
+        <h1 style="color: #000000; max-width: 300px; overflow-wrap: break-word">{{post.title}}</h1>
+        <p style="color: #000000; max-width: 400px; overflow-wrap: break-word">{{post.description}}</p>
+        <a class="btn btn-primary" href="/posts/{{post._id}}/edit">Edit Post</a>
+        <p><form method="POST" action="/posts/{{post._id}}?_method=DELETE">
+            <button class="btn" style="background-color: #000000; color: #FFFFFF" type="submit">Delete</button>
+        </form></p>
+    </div>
+</div>
