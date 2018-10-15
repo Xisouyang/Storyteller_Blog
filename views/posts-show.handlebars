@@ -8,5 +8,10 @@
         <p><form method="POST" action="/posts/{{post._id}}?_method=DELETE">
             <button class="btn" style="background-color: #000000; color: #FFFFFF" type="submit">Delete</button>
         </form></p>
+
+        <hr>
+
+    <!-- Comment form -->
+    {{> comment-form}}
     </div>
 </div>
