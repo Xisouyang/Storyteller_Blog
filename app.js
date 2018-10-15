@@ -16,7 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 
 
-const posts = require('./controllers/posts')(app);
+const Posts = require('./controllers/posts')(app);
+const Comments = require('./controllers/comments')(app);
+const Post = require('./models/post')
+const Comment = require('./models/comment')
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

@@ -1,6 +1,6 @@
 //controllers/posts.js
-
-const Post = require('../models/post');
+const Post = require('../models/post')
+const Comment = require('../models/comment')
 
 module.exports = function(app) {
 
@@ -33,7 +33,13 @@ module.exports = function(app) {
   // SHOW
   app.get('/posts/:id', (req, res) => {
     Post.findById(req.params.id).then((post) => {
-        res.render('posts-show', { post: post })
+        console.log(post)
+        Comment.find({ postId: req.params.id }).then(comments => {
+            console.log(comments)
+            res.render('posts-show', { post: post, comments: comments })
+        })
+    }).catch((err) => {
+        console.log(err.message)
     })
   });
 

@@ -3,7 +3,8 @@
 
 <!-- views/partials/comment-form.handlebars -->
 
-<form>
+<form action="/posts/comments" method="post">
+    <input type="hidden" value="{{post._id}}" name="postId">
   <fieldset>
     <legend>Add a Comment</legend>
     <!-- TITLE -->
